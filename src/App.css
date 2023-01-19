@@ -1,0 +1,117 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    display: block;
+}
+
+.root {
+    display: block;
+    scroll-behavior: smooth;
+
+}
+
+.main-content {
+    min-height: 100vh;
+    background-color: #39445a;
+    color: #fff;
+    padding-top: 130px;
+    padding-bottom: 70px;
+
+}
+
+.header {
+
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: grey;
+    z-index: 101;
+    border-bottom: 1px solid #222028;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-size: 5vw;
+    font-weight: 600;
+    padding-bottom: 15px;
+    box-shadow: 0 1px 5px #000;
+    text-align: center;
+}
+
+.MuiContainer-root {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    color: #fff;
+    max-width: 1280px;
+}
+
+.trending {
+    
+    gap: 50px;
+    background-color: grey;
+    display: flex;
+    flex-direction: row;
+    align-content: normal;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.subTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2px 3px;
+    text-transform: capitalize;
+}
+
+.media {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: normal;
+    align-content: normal;
+    width: 200px;
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #282c34;
+    border-radius: 10px;
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+}
+
+.card-rate {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(26, 25, 31, 0.6);
+    border: 2px solid transparent;
+    border-radius: 50%;
+}
+
+.movies {
+    width: 90vw;
+    max-width: 1170px;
+    max-width: var(--max-width);
+    display: grid;
+    grid-gap: 2rem;
+    gap: 2rem;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+    padding-top: 3rem;
+}

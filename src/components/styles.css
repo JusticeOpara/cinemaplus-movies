@@ -1,0 +1,93 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+input {
+    width: 30vw;
+    height: 8vh;
+    padding-left: 1rem;
+    border-radius: 0.5rem;
+    border: solid grey 1px;
+    font-size: 1.4rem;
+}
+
+input:focus {
+    border: solid #3b71ca 1px;
+
+}
+
+input:active {
+    border: solid #3b71ca 1px;
+}
+
+.checkbox {
+    width: 20px;
+}
+
+.form {
+    /* background-color: aqua; */
+    width: 38vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border: solid grey 1px;
+    border-radius: 0.5rem;
+}
+
+.error {
+    color: red;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.form-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+
+}
+
+button {
+    font-size: 1.5rem;
+    width: 30vw;
+    height: 8vh;
+    /* background-color: #1363DF;   */
+    border-radius: 0.5rem;
+    border: none;
+    display: block;
+    cursor: pointer;
+    color: #fff;
+}
+
+.align-text {
+    /* background-color: green; */
+
+    width: 76%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.disabled {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+}
+
+#submit {
+    background-color: grey;
+}
