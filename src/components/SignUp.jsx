@@ -35,6 +35,7 @@ export default function SignUp() {
             const signupContent = await signup(values.email,values.password);
             console.log(signupContent, "SIGNUPCONTENT")
             navigate('/HomePage');
+            
         } catch (error) {
 
             toast.error("Error: " + error.message, {
@@ -42,6 +43,8 @@ export default function SignUp() {
             });
             console.log(error, "-TOASTERROR")
         }
+           
+    
     }
 
 

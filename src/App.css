@@ -21,21 +21,74 @@ body {
 
 .header {
 
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; 
+    text-align: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    height: 13%;
+    padding-left: 30px;
+    padding-right: 30px;
     background-color: grey;
     z-index: 101;
     border-bottom: 1px solid #222028;
     text-transform: uppercase;
     font-family: "Montserrat", sans-serif;
-    font-size: 5vw;
-    font-weight: 600;
-    padding-bottom: 15px;
     box-shadow: 0 1px 5px #000;
-    text-align: center;
+
+
+}
+
+.header-text {
+    font-size: 30px;
+    font-weight: 600;
+    background-color: gray;
+}
+
+
+.search-box {
+    width: 100%;
+    height: 40px;
+    border-radius: 16px;
+    background-color: #151f30;
+    border: none;
+    padding: 0 60px 0 20px;
+    font-size: 15px;
+    color: #fff;
+}
+.sub-text{
+font-weight:600;
+}
+.header-form {
+    position: absolute;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: -80px;
+    height: 80px;
+    background-color: #131720;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-btn {
+    background-color: #000;
+    height: 40px;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    border: solid 2px #fff;
 }
 
 .MuiContainer-root {
@@ -51,7 +104,7 @@ body {
 }
 
 .trending {
-    
+
     gap: 50px;
     background-color: grey;
     display: flex;

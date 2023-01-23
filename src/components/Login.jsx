@@ -109,7 +109,7 @@ export default function Login() {
 
 
 
-                        <p>Not a member? <Link to="/SignUp">Register </Link> </p>
+                        <p>Don't have an account? <Link to="/SignUp">Register </Link> </p>
 
                     </Form>
                 )}

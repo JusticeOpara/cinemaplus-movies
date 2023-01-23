@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import './styles.css'
+import { Link } from "react-router-dom"
+// import './styles.css'
 import { useRouteLoaderData } from 'react-router-dom';
 import '../App.css';
 
@@ -10,7 +11,7 @@ import '../App.css';
 export default function HomePage() {
 	const [response, setResponse] = useState([]);
 	const [isLoading, setIsLoading] = useState(false)
-	const [hasFetched, setHasFetched] = useState(false);
+
 	const url = "https://api.themoviedb.org/3/trending/all/day?api_key=548b87909aaf9fd5305170f710122e89"
 	const img_300 = "https://image.tmdb.org/t/p/w300"
 	const unavailable = "https://www.movienewz.com/img/films/poster-holder.jpg";
@@ -33,9 +34,9 @@ export default function HomePage() {
 		} finally {
 			setIsLoading(false)
 		}
-git
 
-		// .catch(error => finally(() => setIsLoading(false)));
+
+
 	};
 
 
@@ -57,9 +58,29 @@ git
 
 				<div className='root'>
 					<div className='main-content'>
-						<p className="header">Cineam Plus Entainment</p>
+
+
+						<div className='header'>
+
+							<p className="header-text">Cineam<a style = {{color:"blue"}}>Plus</a> </p>
+							<p className='sub-text'>home</p>
+							<p className="sub-text">About us</p>
+							<p className='sub-text'>BookMarker^</p>
+
+						 <form> 
+								<input type="text" className='search-box' placeholder='Search...' />
+
+							</form> 
+
+
+							<div className='login-btn'>
+								<Link to="/Login">Sign In</Link>
+							</div>
+
+						</div>
+
 						<div className="MuiContainer-root" >
-							{/* <div className='block' > */}
+
 							<div className="trending">
 
 								{response.map((movie) => {
@@ -75,7 +96,7 @@ git
 											<p>{movie.title || movie.name}</p>
 											<span className="subTitle">
 												{movie.media_type}
-												<span className="subTitle">{movie.release_date||movie.first_air_date}</span>
+												<span className="subTitle">{movie.release_date || movie.first_air_date}</span>
 											</span>
 										</div>
 									)
@@ -84,10 +105,6 @@ git
 
 								})}
 
-								{/* </div> */}
-
-
-
 							</div>
 
 						</div>
@@ -95,11 +112,6 @@ git
 					</div>
 
 				</div>
-
-
-
-
-
 
 
 			}

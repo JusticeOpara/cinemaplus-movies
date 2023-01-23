@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import ReactObserver from 'react-event-observer';
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { signInWithEmailAndPassword } from "firebase/auth"
@@ -19,6 +20,17 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
+export const firebaseObserver = ReactObserver();
+onAuthStateChanged(auth, (user) => {
+  firebaseObserver.publish("authStateChanged", loggedIn())
+
+});
+
+export function loggedIn() {
+  return !!auth.currentUser;
+}
+
+
 export const signIn = async (email, password) => {
 
   try {
@@ -35,11 +47,11 @@ export const signIn = async (email, password) => {
     return true
   } catch (error) {
  
-    if (windows.error.code === 'auth/wrong-password'||'auth/wrong-email') {
-      console.log('Incorrect password. Please try again.');
-    } else {
+     if (window.error.code === 'auth/wrong-password'||'auth/wrong-email') {
+       console.log('Incorrect password. Please try again.');
+   } else {
       console.log(error);
-    }
+     }
 
   }
 };
