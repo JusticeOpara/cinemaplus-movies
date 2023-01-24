@@ -47,7 +47,7 @@ export const signIn = async (email, password) => {
     return true
   } catch (error) {
  
-     if (window.error.code === 'auth/wrong-password'||'auth/wrong-email') {
+     if (window.error === 'auth/wrong-password'||'auth/wrong-email') {
        console.log('Incorrect password. Please try again.');
    } else {
       console.log(error);
