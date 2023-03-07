@@ -5,60 +5,47 @@ import './App.css'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import ForgotPassword from "./components/ForgotPassword"
 import HomePage from "./components/HomePage";
-import { loggedIn, firebaseObserver } from "./Firebase";
-import { useEffect, useState } from "react";
+import BookMark from "./components/BookMark"
+import ProtectedRoute from "./ProtectedRoute"
+import { AuthProvider } from "./StoredDirectory/authContext"
+
 
 export default function App() {
-  const [authenticated, setAuthenticated] = useState(loggedIn());
-  const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    firebaseObserver.subscribe('authStateChanged', data => {
-      console.log(data, "--Data")
-      // if (data){
-      //   <Navigate to={<HomePage/>}/>
-      // }
-      setAuthenticated(data);
 
-      setIsLoading(false);
+  return (
 
-    });
-    
-    return () => { firebaseObserver.unsubscribe('authStateChanged'); }
-
-  }, []);
-  
-  return isLoading ? <p>loading...</p> :
     <BrowserRouter>
 
       <div className="App">
 
-        <Routes>
+        <AuthProvider>
 
-           <Route path="/" element={<Navigate to={authenticated ? "/HomePage" : "/Login"} replace />}/> 
+          <Routes>
 
-          <Route path="/Homepage" element={<HomePage />} hasAccess={authenticated} />
+            <Route element={<ProtectedRoute />}>
 
-          <Route path="/Login" element={<Login />} hasAccess={!authenticated} exact />
+              <Route path="/" element={<HomePage />} />
+
+            </Route>
+
+             <Route path="*" element={<Login />} /> 
+
+            <Route path="/auth/signup" element={<SignUp />} />
+
+            <Route path="/auth/forgot-password" element={<ForgotPassword />} />
+
+            <Route path="/auth/book-mark" element={<BookMark />} />
+
+          </Routes>
 
 
-
-
-          <Route path="/SignUp" element={<SignUp />} />
-
-          <Route path="/ForgotPassword" element={<ForgotPassword />} />
-
-          <Route path="*" element={<Navigate to={authenticated ? "/HomePage" : "/Login"} replace />} />
-
-
-        </Routes>
-
+        </AuthProvider>
 
       </div>
 
     </BrowserRouter>
-
-
+  )
 
 }
 

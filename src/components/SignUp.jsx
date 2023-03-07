@@ -32,9 +32,9 @@ export default function SignUp() {
         
         try {
             
-            const signupContent = await signup(values.email,values.password);
+            const signupContent = await signup(values.email,values.password,values.username);
             console.log(signupContent, "SIGNUPCONTENT")
-            navigate('/HomePage');
+            navigate('/');
             
         } catch (error) {
 
@@ -136,7 +136,7 @@ export default function SignUp() {
                             style={{ backgroundColor: !isValid ? 'gray' : 'blue' }}>
 
                             {isSubmitting ? 'Creating account..' : 'Sign up'}
-
+                           
                         </button>
 
 

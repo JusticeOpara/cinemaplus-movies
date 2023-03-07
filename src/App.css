@@ -2,6 +2,7 @@ body {
     padding: 0px;
     margin: 0px;
     display: block;
+
 }
 
 .root {
@@ -12,11 +13,12 @@ body {
 
 .main-content {
     min-height: 100vh;
-    background-color: #39445a;
+    background-color: #222831;
     color: #fff;
-    padding-top: 130px;
-    padding-bottom: 70px;
-
+    /* padding-top: 130px;
+    padding-bottom: 70px; */
+    padding-bottom: 50px;
+    padding-top: 100px;
 }
 
 .header {
@@ -24,7 +26,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center; 
+    align-items: center;
     text-align: center;
     position: fixed;
     top: 0;
@@ -33,7 +35,7 @@ body {
     height: 13%;
     padding-left: 30px;
     padding-right: 30px;
-    background-color: grey;
+    background-color: #393E46;
     z-index: 101;
     border-bottom: 1px solid #222028;
     text-transform: uppercase;
@@ -60,9 +62,11 @@ body {
     font-size: 15px;
     color: #fff;
 }
-.sub-text{
-font-weight:600;
+
+.sub-text {
+    font-weight: 600;
 }
+
 .header-form {
     position: absolute;
     top: auto;
@@ -89,6 +93,9 @@ font-weight:600;
     align-items: center;
     border-radius: 6px;
     border: solid 2px #fff;
+    color: #fff;
+    font-size: 1rem;
+
 }
 
 .MuiContainer-root {
@@ -104,14 +111,20 @@ font-weight:600;
 }
 
 .trending {
-
-    gap: 50px;
-    background-color: grey;
+    /* gap: 20px;  */
+    /* background-color: grey; */
     display: flex;
     flex-direction: row;
     align-content: normal;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: 17px;
+    padding: 8px 0;
 }
 
 .subTitle {
@@ -128,10 +141,10 @@ font-weight:600;
     flex-wrap: nowrap;
     justify-content: normal;
     align-content: normal;
-    width: 200px;
+    width: 220px;
     padding: 5px;
     margin: 5px 0;
-    background-color: #282c34;
+    background-color: #393E46;
     border-radius: 10px;
     position: relative;
     font-family: "Montserrat", sans-serif;
@@ -152,7 +165,7 @@ font-weight:600;
     height: 36px;
     top: 15px;
     left: 15px;
-    background-color: rgba(26, 25, 31, 0.6);
+    background-color: #00ADB5;
     border: 2px solid transparent;
     border-radius: 50%;
 }
@@ -167,4 +180,141 @@ font-weight:600;
     margin: 0 auto;
     padding-bottom: 5rem;
     padding-top: 3rem;
+    background-color: red;
+}
+
+.footer-container {
+    max-width: 1280px;
+    display: block;
+    padding-top: 20px;
+    padding-right: 18px;
+    padding-left: 18px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* .col{
+background-color: red;
+} */
+.footer {
+    background-color: #222831;
+
+}
+
+.text-section {
+    color: #fff;
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    /* font-size:36px; */
+    color: #fff;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 130%;
+    margin-bottom: 20px;
+
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: gray;
+    align-items: center;
+    height: 80px;
+    font-size: 16px;
+}
+
+.footer-logo {
+
+    font-size: 2rem;
+    font-weight: 600;
+
+}
+
+a {
+    transition: 0.4s;
+    transition-property: color, background-color, border-color, opacity;
+    /* color: #fff; */
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.footer-buttton {
+    font-size: 8rem;
+}
+
+hr {
+    size: 20px;
+}
+
+
+
+
+
+@media(max-width:550px) {
+
+    .MuiContainer-root {
+
+        padding-left: 8px;
+        padding-right: 8px;
+        max-width: 550px;
+        padding-top: 50px;
+    }
+
+    .media {
+        width: 46%;
+        background-color: #00ADB5;
+
+    }
+
+    .trending {
+        background-color: blue;
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: normal;
+    }
+
+    .subTitle {
+
+        font-size: 8px;
+    }
+
+    .title {
+        font-size: 10px;
+    }
+
+    .card-rate {
+        font-size: 10px;
+        font-weight: 500;
+        color: #fff;
+        position: absolute;
+        z-index: 3;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        height: 25px;
+        top: 10px;
+        left: 10px;
+        background-color: #00ADB5;
+        border: 2px solid transparent;
+        border-radius: 50%;
+    }
+    .footer-container {
+        max-width: 550px;
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+        
+    }
+
 }

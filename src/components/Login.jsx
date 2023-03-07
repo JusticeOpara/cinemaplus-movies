@@ -26,7 +26,7 @@ export default function Login() {
 
             await signIn(values.email, values.password);
 
-            navigate('/HomePage');
+            navigate('/');
 
         } catch (error) {
 
@@ -99,7 +99,7 @@ export default function Login() {
                                 <label> Remember me </label>
                             </div>
 
-                            <div> <Link to="/ForgotPassword">Forgotten password?</Link></div>
+                            <div> <Link to="/auth/forgot-password">Forgotten password?</Link></div>
 
 
                         </div>
@@ -109,7 +109,7 @@ export default function Login() {
 
 
 
-                        <p>Don't have an account? <Link to="/SignUp">Register </Link> </p>
+                        <p className="xlll">Don't have an account? <Link to="/auth/signup">Register  </Link> </p>
 
                     </Form>
                 )}

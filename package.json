@@ -16,7 +16,7 @@
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
     "react-event-observer": "^0.5.11",
-    "react-router-dom": "^6.6.1",
+    "react-router-dom": "^6.8.0",
     "react-toastify": "^9.1.1",
     "yup": "^0.32.11"
   },
