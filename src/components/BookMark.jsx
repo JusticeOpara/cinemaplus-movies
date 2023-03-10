@@ -3,13 +3,17 @@ import React from "react"
 import './styles.css'
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { getCollection } from "../Firebase"
+import { deleteRef,getCollection } from "../Firebase"
 import { useAuth } from "../StoredDirectory/authContext";
+
+
+
+
 
 export default function BookMark() {
 
     const { user } = useAuth()
-    console.log(user, "----bookmaerkAuthContext")
+    console.log(user, "----bookmarkAuthContext")
 
     const [isLoading, setIsLoading] = useState(false)
     const [readData, setReadData] = useState([])
@@ -17,6 +21,18 @@ export default function BookMark() {
     const unavailable = "https://www.movienewz.com/img/films/poster-holder.jpg";
 
 
+    const handleDelete = async () => {
+        try {
+            const deleteData = await deleteRef();
+            console.log(deleteData, "DELETE-REF#")
+
+
+        } catch (error) {
+
+            console.log(error, "-TOASTERROR")
+        }
+
+    }
 
     const fetchData = async () => {
         setIsLoading(true)
@@ -106,6 +122,7 @@ export default function BookMark() {
                                 const { id, title, vote_average, name, media_type, release_date, popularity, overview, first_air_date, backdrop_path } = movie
 
                                 return (
+
                                     <div className="card" key={id} id={id}>
 
                                         <img className="card-image"
@@ -118,10 +135,10 @@ export default function BookMark() {
 
                                             <ul>
                                                 <li>
-                                                    <span>Summary:</span> {overview}
+                                                    <span>Summary:</span>  {overview}
                                                 </li>
                                                 <li>
-                                                    <span>Popuarity:</span> {popularity}
+                                                    <span>Popuarity:</span>  {popularity}
                                                 </li>
 
                                                 <li>
@@ -138,7 +155,8 @@ export default function BookMark() {
                                             </ul>
 
                                         </div>
-                                        <div>
+
+                                        <div onClick={handleDelete}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 24 24">
                                                 <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12l1.41 
                                                  1.41L13.41 14l2.12 2.12l-1.41 1.41L12 15.41l-2.12 2.12l-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>

@@ -76,24 +76,25 @@ await addDoc(colRef, {
 // Would you like to discuss further the benefits of owning a website for your business?
 
 
+export const deleteCollection = async (userId) => {
+
+  try {
+    const docRef = doc(db, "users", user.uid);
+     console.log(docRef.id,"---wwwwwwwwwwwwwwwwwwwww")
 
 
+    const queryRef = query(collection(db, "users", userId, "bookmark"));
+    const docSnapshot = await getDocs(queryRef);
 
+    const deleteOps = [];
+    docSnapshot.forEach((doc) => {
+      deleteOps.push(deleteDoc(doc.id));
+    });
 
-const db = firebase.firestore();
-const myCollection = db.collection("myCollection");
+    console.log(deleteOps, "---deleteOps")
+    return deleteOps
 
-const data = {
-  name: "John Doe",
-  age: 25,
-  email: "johndoe@example.com"
-};
-
-myCollection
-  .add(data)
-  .then((docRef) => {
-    console.log("Document written with ID: ", docRef.id);
-  })
-  .catch((error) => {
-    console.error("Error adding document: ", error);
-  });
+  } catch (err) {
+    console.log("Error in getting document:", err)
+  }
+}

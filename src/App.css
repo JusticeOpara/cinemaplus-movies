@@ -257,7 +257,7 @@ hr {
 
 
 
-@media(max-width:550px) {
+@media(max-width:460px) {
 
     .MuiContainer-root {
 
@@ -265,6 +265,7 @@ hr {
         padding-right: 8px;
         max-width: 550px;
         padding-top: 50px;
+        
     }
 
     .media {

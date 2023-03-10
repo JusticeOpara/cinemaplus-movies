@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import ReactObserver from 'react-event-observer';
-import { getFirestore, addDoc, collection, doc, setDoc, getDocs } from "firebase/firestore";
+import { getFirestore, addDoc, collection, doc, setDoc, getDocs, deleteDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { getStorage } from "firebase/storage";
@@ -87,6 +87,7 @@ export const signup = async (email, password, username) => {
 
     try {
       const userDocRef = doc(db, "users", user.uid);
+
       await setDoc(userDocRef, {
         uid: user.uid,
         email: user.email,
@@ -145,6 +146,7 @@ export const getCollection = async (userId) => {
       res.push({
         id: dox.id,
         ...dox.data()
+
       })
     })
 
@@ -157,13 +159,21 @@ export const getCollection = async (userId) => {
 
 }
 
-export const deleteDocument = async () => {
+export const deleteRef = async () => {
+
   try {
+    const docRef = doc(db, "users");
+
+    await deleteDoc(console.log(docRef.id, "--documentRef"))
 
   } catch (err) {
 
+    console.log("Error in getting document:", err)
   }
+
 }
+
+
 
 
 
