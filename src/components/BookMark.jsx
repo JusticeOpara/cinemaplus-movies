@@ -1,11 +1,10 @@
 import React from "react"
-// import axios from "axios"
 import './styles.css'
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { deleteRef,getCollection } from "../Firebase"
+import {  deleteRef, getCollection } from "../Firebase"
 import { useAuth } from "../StoredDirectory/authContext";
-
+import { connectStorageEmulator } from "firebase/storage"
 
 
 
@@ -21,11 +20,16 @@ export default function BookMark() {
     const unavailable = "https://www.movienewz.com/img/films/poster-holder.jpg";
 
 
-    const handleDelete = async () => {
+    const handleDelete = async (bookmarkUid) => {
         try {
-            const deleteData = await deleteRef();
-            console.log(deleteData, "DELETE-REF#")
+            const deleteData = await deleteRef(user.uid, bookmarkUid);
+            const orginalArrayBookmarks = [...readData];
 
+            const newArray = orginalArrayBookmarks.filter(data => data.bookmarkId !== bookmarkUid);
+
+            setReadData(newArray);
+
+            console.log(deleteData, "DELETE-REF#")
 
         } catch (error) {
 
@@ -81,7 +85,9 @@ export default function BookMark() {
 
                             </div>
 
-                            <p>HomePage</p>
+                            <p>
+                                <Link to="/" style={{ color: "#fff" }}> Homepage </Link>
+                            </p>
 
                             <p>UserId</p>
 
@@ -119,8 +125,9 @@ export default function BookMark() {
 
                             {readData.map((movie) => {
 
-                                const { id, title, vote_average, name, media_type, release_date, popularity, overview, first_air_date, backdrop_path } = movie
-
+                                const { id, title, vote_average, name, media_type, bookmarkId, release_date, popularity, overview, first_air_date, backdrop_path } = movie
+                                
+                                console.log(bookmarkId, "---BOOKMARKUID--")
                                 return (
 
                                     <div className="card" key={id} id={id}>
@@ -133,9 +140,11 @@ export default function BookMark() {
 
                                             <h2 className="card-title">{title || name}</h2>
 
+
+
                                             <ul>
                                                 <li>
-                                                    <span>Summary:</span>  {overview}
+                                                    <span >Summary:</span>  {overview}
                                                 </li>
                                                 <li>
                                                     <span>Popuarity:</span>  {popularity}
@@ -150,14 +159,18 @@ export default function BookMark() {
                                                 </li>
 
                                                 <li>
+
                                                     <span> Release_date:</span> {release_date || first_air_date}
                                                 </li>
+
                                             </ul>
+
+
 
                                         </div>
 
-                                        <div onClick={handleDelete}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 24 24">
+                                        <div className="delete-btn" onClick={() => handleDelete(bookmarkId)}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
                                                 <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12l1.41 
                                                  1.41L13.41 14l2.12 2.12l-1.41 1.41L12 15.41l-2.12 2.12l-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
                                             </svg>

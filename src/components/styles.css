@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 h2 {
@@ -92,14 +93,15 @@ button {
     background-color: grey;
 }
 
-/* BOOOKMARK PAGE */
+/* BOOOKMARK PAGE  BOOKMARK PAGE*/
 
 .bookmark-container {
     min-height: 100vh;
-    background-color: gray;
+    background-color:#222831;
     color: #fff;
     padding: 0px;
     margin: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .backdropImage {
@@ -154,7 +156,7 @@ button {
     justify-content: space-around;
     height: 30%;
     padding-left: 50px;
-    margin-bottom:60px ;
+    margin-bottom: 60px;
 }
 
 .hero-title {
@@ -166,80 +168,153 @@ button {
     font-weight: 500;
 }
 
-.bm-btn{
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-width: 40%;
-background-color: darkgoldenrod;
-}
-
-.hero-btn{
-
-background-color: grey;
-height: 50px;
-width: 200px;
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-/* border-radius: -6px;  */
-border: solid 2px #fff; 
-color: #fff;
-font-size: 1rem;
-
-}
-.bm-content{
-    width: 100%;
-    /* display: block; */
-    /* box-sizing: border-box; */
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 16px;
-    padding-right: 16px;
-    color: #fff;
-    /* max-width: 1280px; */
-    background-color: cornflowerblue;
-}
-.bm-movelist{
-    display: flex;
-    flex-direction: column;
-    align-content: normal;
-    justify-content: space-around;
-
-
-}
-.card{
-    width:100%;
-    height: 250px;
-    background-color: coral;
+.bm-btn {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 40%;
+    background-color: darkgoldenrod;
+}
+
+.hero-btn {
+
+    background-color: #00ADB5;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: -6px;  */
+    border: solid 2px #fff;
+    color: #fff;
+    font-size: 1rem;
+
+}
+
+.bm-content {
+    width: 100%;
+    margin-top: 30px;
+     margin-left: auto;
+    margin-right: auto; 
+    padding-left: 16px;
+    padding-right: 16px;
+    color: #fff;
+    /* background-color: cornflowerblue; */
+
+}
+
+.bm-movelist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #FFACAC; */
+    
+}
+
+.card {
+    width: 92%;
+    height: 300px;
+    background-color:#393E46;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     border-radius: 10px;
     font-family: "Montserrat", sans-serif;
     cursor: pointer;
     padding: 5px;
     margin: 5px 0;
 }
-.card-image{
-border-radius: 10px;
+
+.card-image {
+    border-radius: 10px;
+    width: 500px;
+    height: 280px;
+}
+
+.card-title {
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card-detail {
+
+    /* background-color: #333; */
+    width: 500px;
+    height: 280px;
+    overflow-y: scroll;
+    line-height: 28px;
+    /* font-size: 16px; */
 
 }
-.card-title{
- font-size: 30px;
- display: flex;
- flex-direction: row;
- justify-content: center;
- align-items: center;
-}
-.card-detail{
-    background-color: mediumpurple;
-    width: 800px;
 
-}
-ul{
+ul {
     list-style: none;
-    /* font-size: 20px; */
+
+}
+
+span {
+    color: #00ADB5;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.delete-btn {
+    background-color: #00ADB5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8%;
+    height: 35%;
+    border-radius: 20px;
+
+}
+
+@media(max-width:480px) {
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .form {
+        background-color: aqua;
+        width: 70vw;
+        height: 45vh;
+        gap: 30px;
+        border: solid grey 1px;
+        border-radius: 0.5rem;
+    }
+
+    input {
+        width: 50vw;
+        height: 3vh;
+        padding-left: 1rem;
+        border-radius: 0.5rem;
+        border: solid grey 1px;
+        font-size: 1rem;
+    }
+
+    .form-text {
+        font-size: 1rem;
+        font-weight: 500;
+
+    }
+
+    button {
+        font-size: 1rem;
+        width: 30vw;
+        height: 4vh;
+        background-color: #1363DF;
+        border-radius: 0.5rem;
+
+    }
+
+
 }

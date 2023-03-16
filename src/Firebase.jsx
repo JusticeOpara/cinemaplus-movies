@@ -114,19 +114,21 @@ export const signup = async (email, password, username) => {
 
 
 export const bookmark = async (userId, movies) => {
+
   try {
 
-    const bookmarkRef = collection(db, "users", userId, "bookmark");
-    console.log(bookmarkRef, "--BOOK--MARK--REF--");
+    const bookmarkRef = doc(collection(db, 'users', userId, 'bookmark'));
+    console.log(bookmarkRef.id, "--BOOK--MARK--REF--");
 
-    const moviesObj = { ...movies, userId: userId }
+    const moviesObj = { ...movies, userId: userId, bookmarkId: bookmarkRef.id }
     console.log(moviesObj, "---MOVIESOBJ")
-    await addDoc(bookmarkRef, JSON.parse(JSON.stringify(moviesObj)));
+    await setDoc(bookmarkRef, JSON.parse(JSON.stringify(moviesObj)),{merge: true});
 
   } catch (e) {
     console.log("Error in adding document from bookmark: ", e);
   }
 };
+
 
 
 export const getCollection = async (userId) => {
@@ -159,12 +161,13 @@ export const getCollection = async (userId) => {
 
 }
 
-export const deleteRef = async () => {
+export const deleteRef = async (userId,bookmarkUid) => {
+
 
   try {
-    const docRef = doc(db, "users");
-
-    await deleteDoc(console.log(docRef.id, "--documentRef"))
+    const docRef = doc(db, "users", userId, "bookmark",bookmarkUid)
+   console.log(bookmarkUid,"------justice boookmark id")
+    await deleteDoc(docRef)
 
   } catch (err) {
 

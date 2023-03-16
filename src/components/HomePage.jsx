@@ -63,11 +63,14 @@ export default function HomePage() {
 
 						<div className='header'>
 
-							<p className="header-text">Cineam<a style={{ color: "#00ADB5" }}>Plus</a> </p>
-							<p className='sub-text'>home</p>
-							<p className="sub-text">About us</p>
-							<p className='sub-text'>
-							<Link to="/auth/book-mark" >BookMarker^</Link></p>
+							<div className="header-content">
+								<p className="header-text">Cineam<a style={{ color: "#00ADB5" }}>Plus</a> </p>
+								{/* <p className='sub-text'>home</p> */}
+								<p className="sub-text">About us</p>
+								<p className='sub-text'>
+									<Link to="/auth/book-mark" style={{color:"#fff" ,hover:"000"}}>Bookmark^</Link></p>
+
+							</div>
 
 							<form>
 								<input type="text" className='search-box' placeholder='Search...' />
@@ -87,8 +90,8 @@ export default function HomePage() {
 
 								{response.map((movie) => {
 
-									const { id, poster_path, title, vote_average, name, media_type, release_date, first_air_date} = movie
-									
+									const { id, poster_path, title, vote_average, name, media_type, release_date, first_air_date } = movie
+
 									return (
 										<div
 											onClick={() => { setModalOpen(true); setMovies(movie) }}
@@ -130,18 +133,17 @@ export default function HomePage() {
 								</h3>
 
 								<p className=" text-section">
-									It is a long established fact that a reader will be distracted by the readable content
-									of a page when looking at its layout. The point of <b>using Lorem</b>
-									Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.
 									Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,
 									and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+									Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 								</p>
 
-								<p className="text-section">Content here, content here, making it look like
-									<a>readable</a>
-									English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,
-									and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have
-									evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+								<p className="text-section">
+									All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
+									making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,
+									combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
+									The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic
+									words etc.
 								</p>
 							</div>
 

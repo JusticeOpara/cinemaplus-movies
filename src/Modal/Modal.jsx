@@ -1,33 +1,32 @@
 import React from "react";
 import "./modal.css";
-// import { useState } from "react";
-// import { useNavigate } from 'react-router-dom'
 import { bookmark } from "../Firebase";
-import HomePage from "../components/HomePage";
 import { useAuth } from "../StoredDirectory/authContext";
-
+import { useState } from 'react';
 export default function Modal({ setOpenModal, modelMovies }) {
+
+    const [isAdding, setIsAdding] = useState(true);
     const { user } = useAuth()
     console.log(user, "-----userlkoooooooooooAuthContext")
 
-    // const navigate = useNavigate()
-    
+
+
     const img_300 = "https://image.tmdb.org/t/p/w300"
     const unavailable = "https://www.movienewz.com/img/films/poster-holder.jpg";
     // const { id, poster_path, title, vote_average, name, media_type, release_date, first_air_date,overview } = movie
-									
 
-    const { id,poster_path, title,vote_average, release_date, first_air_date, popularity, overview,backdrop_path } = modelMovies
-    const object = { id,poster_path, title,vote_average, release_date, first_air_date ,popularity,overview,backdrop_path }
-    
+
+    const { id, poster_path, title, name, vote_average, release_date, first_air_date, popularity, overview, backdrop_path } = modelMovies
+    const object = { id, poster_path, title, name, vote_average, release_date, first_air_date, popularity, overview, backdrop_path }
+
     console.log(object, "--modalMoviesObject")
 
     const handleBookmark = async () => {
+        setIsAdding(false);
         try {
-            const bookMarkRef = await bookmark(user.uid,object);
-             console.log(bookMarkRef, "BOOKMARKCONTENT#")
+            const bookmarkPost = await bookmark(user.uid, object);
+            console.log(bookmarkPost, "BOOKMARKCONTENT#")
 
-            
         } catch (error) {
 
             console.log(error, "-TOASTERROR")
@@ -36,7 +35,9 @@ export default function Modal({ setOpenModal, modelMovies }) {
 
     }
 
-
+    // const handleClick = () => {
+    //     setIsAdding(false);
+    // };
 
     return (
 
@@ -68,7 +69,7 @@ export default function Modal({ setOpenModal, modelMovies }) {
                         <p>{modelMovies.overview}</p>
                         <span className="">{modelMovies.release_date || modelMovies.first_air_date}</span>
 
-                        <button onClick={handleBookmark} className="contentModalBtn">Add to Bookmark</button>
+                        <button onClick={handleBookmark} className="contentModalBtn"> {isAdding ? 'Add To Bookmark ' : 'Added to Bookmark... ' }</button>
 
 
                     </div>

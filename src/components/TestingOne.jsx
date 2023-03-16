@@ -75,7 +75,12 @@ await addDoc(colRef, {
 // while simultaneously increasing your own efficiency and productivity. 
 // Would you like to discuss further the benefits of owning a website for your business?
 
+const cachedBookmarks = [...readData];
 
+            const newState = cachedBookmarks.filter(data => data.bookmarkId !== bookmarkUid);
+
+            setReadData(newState);
+            
 export const deleteCollection = async (userId) => {
 
   try {
@@ -98,3 +103,24 @@ export const deleteCollection = async (userId) => {
     console.log("Error in getting document:", err)
   }
 }
+
+// How to avoid adding a data repeatedly in firebase?-show in async function javascript
+async function addDataIfNotExists(database, collectionName, data) {
+  // Check if data already exists in the collection
+  const snapshot = await database.collection(collectionName).where("fieldName", "==", data.fieldName).get();
+  if (!snapshot.empty) {
+    console.log("Data already exists.");
+    return;
+  }
+
+  // Add data to the collection if it doesn't exist
+  await database.collection(collectionName).add(data);
+  console.log("Data added successfully.");
+}
+// In this example, the addDataIfNotExists function takes in the Firebase database instance, 
+// the name of the collection to add data to, and the data object to be added. 
+// The function first queries the collection to check if a document with the same fieldName already exists. 
+// If it does, the function simply returns without adding the data. If the query doesn't return any results, 
+// the function adds the data to the collection using the add method and logs a success message.
+
+// You can call this function with your own database instance, collection name, and data object. 
