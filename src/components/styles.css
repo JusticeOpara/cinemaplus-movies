@@ -32,6 +32,7 @@ input:active {
 
 .checkbox {
     width: 20px;
+    background-color: red;
 }
 
 .form {
@@ -97,21 +98,14 @@ button {
 
 .bookmark-container {
     min-height: 100vh;
-    background-color:#222831;
+    background-color: #222831;
     color: #fff;
     padding: 0px;
     margin: 0px;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.backdropImage {
-    background-position: 50% 50%;
-    /* height: 100%; */
-    /* position: absolute; */
-    transition: opacity .2s ease;
-    width: 100%;
-    /* z-index: 1; */
-}
+
 
 .bm-header {
     background-image: url("https://www.geekgirlauthority.com/wp-content/uploads/2019/04/Avengers-Endgame-Banner-2-1200x640.jpg");
@@ -150,7 +144,7 @@ button {
 
 
 .bm-headerContent {
-    /* background-color: darkorchid; */
+    background-color: darkorchid;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -195,8 +189,8 @@ button {
 .bm-content {
     width: 100%;
     margin-top: 30px;
-     margin-left: auto;
-    margin-right: auto; 
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 16px;
     padding-right: 16px;
     color: #fff;
@@ -210,13 +204,13 @@ button {
     justify-content: center;
     align-items: center;
     /* background-color: #FFACAC; */
-    
+
 }
 
 .card {
     width: 92%;
     height: 300px;
-    background-color:#393E46;
+    background-color: #393E46;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -277,25 +271,37 @@ span {
 
 }
 
+
+
+
+
+
+
+
 @media(max-width:480px) {
+
+    .container {
+        min-height: 100%;
+        width: 100%;
+    }
 
     h2 {
         font-size: 1.5rem;
     }
 
     .form {
-        background-color: aqua;
-        width: 70vw;
-        height: 45vh;
+        /* background-color: aqua; */
+        width: 80vw;
+        height: 54%;
         gap: 30px;
         border: solid grey 1px;
         border-radius: 0.5rem;
     }
 
     input {
-        width: 50vw;
-        height: 3vh;
-        padding-left: 1rem;
+        width: 60vw;
+        height: 4vh;
+         padding-left: 1rem; 
         border-radius: 0.5rem;
         border: solid grey 1px;
         font-size: 1rem;
@@ -316,5 +322,158 @@ span {
 
     }
 
+    .checker {
+        /* background-color: #3b71ca; */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 
+    .align-text {
+        /* background-color: red; */
+        font-size: 10px;
+        width: 60vw;
+        height: 4vh;
+
+
+    }
+
+
+    /* BOOOKMARK PAGE  BOOKMARK PAGE*/
+    .bookmark-container {
+        min-height: 100vh;
+        /* background-color: blue; */
+        scroll-behavior: smooth;
+        box-sizing: border-box;
+    }
+
+    .bm-header {
+        width: 100%;
+        height: 50vh;
+        background-color: red;
+    }
+
+    .bm-content {
+        width: 100%;
+        margin-top: 30px;
+        /* margin-left: auto;
+        margin-right: auto;
+        padding-left: 16px;
+        padding-right: 16px; */
+        color: #fff;
+        /* background-color: cornflowerblue; */
+
+    }
+
+    .bm-navbar {
+        /* background-color: aqua; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 15%;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .bm-logo {
+        font-size: 20px;
+        background-color: red;
+    }
+
+    .hero-title {
+        font-size: 20px;
+    }
+
+    .hero-text {
+        font-size: 15px;
+        font-weight: 500;
+
+    }
+
+    .bm-btn {
+
+        width: 80%;
+        background-color: darkgoldenrod;
+    }
+
+    .hero-btn {
+        background-color: red;
+        height: 40px;
+        width: 120px;
+        border: solid 1px #fff;
+        color: #fff;
+        font-size: 1rem;
+
+    }
+
+    .bm-headerContent {
+        background-color: burlywood;
+        height: 25%;
+        /* padding-left: 50px;
+        margin-bottom: 60px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    .card {
+        width: 100%;
+        height: 180px;
+        /* background-color: #393E; */
+        border-radius: 10px;
+        padding: 5px;
+        margin: 5px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .card-image {
+        border-radius: 15px;
+        width: 90px;
+        height: 160px;
+    }
+
+    .card-title {
+        font-size: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+    }
+
+    .card-detail {
+
+        /* background-color: #333; */
+        width: 180px;
+        height: 160px;
+        overflow-y: scroll;
+        line-height: 28px;
+        /* font-size: 16px; */
+    }
+
+    span {
+
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .delete-btn {
+        background-color: #00ADB5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 13%;
+        height: 28%;
+        border-radius: 15px;
+
+    }
+
+    svg {
+        color: #222831;
+        width: 35px;
+    }
 }

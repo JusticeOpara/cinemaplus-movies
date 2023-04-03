@@ -9,6 +9,7 @@ import Modal from '../Modal/Modal';
 
 
 export default function HomePage() {
+	
 	const [response, setResponse] = useState([]);
 	const [isLoading, setIsLoading] = useState(false)
 	const [modalOpen, setModalOpen] = useState(false)
@@ -68,7 +69,8 @@ export default function HomePage() {
 								{/* <p className='sub-text'>home</p> */}
 								<p className="sub-text">About us</p>
 								<p className='sub-text'>
-									<Link to="/auth/book-mark" style={{color:"#fff" ,hover:"000"}}>Bookmark^</Link></p>
+									<Link to="/auth/book-mark" style={{color:"#fff" ,hover:"000"}}>Bookmark^</Link>
+							    </p>
 
 							</div>
 

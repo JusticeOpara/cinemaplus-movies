@@ -124,3 +124,52 @@ async function addDataIfNotExists(database, collectionName, data) {
 // the function adds the data to the collection using the add method and logs a success message.
 
 // You can call this function with your own database instance, collection name, and data object. 
+
+
+const docId = "unique_document_id";
+const subcollectionRef = firestore
+  .collection("parent_collection")
+  .doc("parent_doc_id")
+  .collection("subcollection");
+
+async function addDocToSubcollection() {
+  try {
+    const doc = await subcollectionRef.doc(docId).get();
+    if (doc.exists) {
+      console.log("Document already exists in the subcollection");
+    } else {
+      await subcollectionRef.doc(docId).set({
+        // document data here
+      });
+      console.log("Document added to the subcollection");
+    }
+  } catch (error) {
+    console.error("Error adding document to subcollection: ", error);
+  }
+}
+
+addDocToSubcollection();
+
+
+export const bookmark = async (userId, movies) => {
+
+  try {
+
+    const bookmarkRef = doc(collection(db, 'users', userId, 'bookmark'));
+    const docId = bookmarkRef.id
+    const doc = await bookmarkRef.doc(docId);
+     if(doc.exists){
+      console.log("document already exists in the subcollection")
+     }else{
+      const moviesObj = { ...movies, userId: userId, bookmarkId: docId }
+       console.log(moviesObj, "---MOVIESOBJ")
+       await setDoc(bookmarkRef, JSON.parse(JSON.stringify(moviesObj)), { merge: true });
+     }
+    // const moviesObj = { ...movies, userId: userId, bookmarkId: docId }
+    // console.log(moviesObj, "---MOVIESOBJ")
+    // await setDoc(bookmarkRef, JSON.parse(JSON.stringify(moviesObj)), { merge: true });
+
+  } catch (e) {
+    console.log("Error in adding document from bookmark: ", e);
+  }
+};

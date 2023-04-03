@@ -51,7 +51,7 @@ export default function Login() {
                 validationSchema={DisplayingErrorMessagesSchema}
                 onSubmit={handleSignIn}
             >
-                {({ errors, touched, isValid, handleBlur, handleChange,isSubmitting }) => (
+                {({ errors, touched, isValid, handleBlur, handleChange, isSubmitting }) => (
 
                     <Form className="form">
 
@@ -89,20 +89,23 @@ export default function Login() {
                         </div>
 
                         <div className="align-text">
-                            <div>
-                                <input
-                                    type="checkbox"
-                                    className="checkbox"
-                                    name="remember"
 
-                                />
-                                <label> Remember me </label>
+                            <div className="checker">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M19 19H5V5h10V3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 
+                                    2-2v-8h-2m-11.09-.92L6.5 11.5L11 16L21 6l-1.41-1.42L11 13.17l-3.09-3.09Z" /></svg>
+                                <a>
+                                    Rememeber Me
+                                </a>
+
                             </div>
 
-                            <div> <Link to="/auth/forgot-password">Forgotten password?</Link></div>
 
+                            <a> <Link to="/auth/forgot-password">Forgotten password?</Link></a>
 
                         </div>
+
                         <button type="submit" disabled={console.log(!isValid, "not valid")}
                             style={{ backgroundColor: !isValid ? 'gray' : 'blue' }}
                         >  {isSubmitting ? 'Signing In..' : 'Sign in'}</button>

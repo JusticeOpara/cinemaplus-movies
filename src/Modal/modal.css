@@ -55,13 +55,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  
 }
 
 .movie-poster {
   height: 90%;
   border-radius: 10px;
-  
-
   /* object-fit: contain; */
 }
 
@@ -82,4 +81,36 @@
   width:50%;
   font-size:18px;
 background-color: #00ADB5;
+}
+
+@media(max-width:480px){
+  /* .modalBackground
+    min-height: 100vh;
+  } */
+  .modalContainer {
+    width: 60%;
+   height: 40%; 
+   border-radius: 12px;
+   background-color: #393E46;
+   display: flex;
+   flex-direction: column;
+ 
+ }
+.movie-poster{
+height: 30%;
+}
+.hero {
+  width: 50vw;
+  height: 30vh;
+
+}
+.contentModalDescription {
+  font-size: 8px; 
+  
+}
+.contentModalBtn {
+  width:90%;
+  font-size:10px;
+background-color: #00ADB5;
+}
 }

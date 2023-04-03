@@ -29,7 +29,7 @@ export default function BookMark() {
 
             setReadData(newArray);
 
-            console.log(deleteData, "DELETE-REF#")
+            // console.log(deleteData, "DELETE-REF#")
 
         } catch (error) {
 

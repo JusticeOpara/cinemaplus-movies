@@ -55,9 +55,9 @@ const AuthProvider = ({ children }) => {
 
 
     const value = { user }
-    console.log(value, "--VALUEIS AUTHENTICATION")
+    // console.log(value, "--VALUEIS AUTHENTICATION")
 
-    console.log(children, "--childern")
+    // console.log(children, "--childern")
     return (
         !isLoading &&
         <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

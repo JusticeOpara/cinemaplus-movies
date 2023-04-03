@@ -5,6 +5,7 @@ body {
 
 }
 
+
 .root {
     display: block;
     scroll-behavior: smooth;
@@ -294,7 +295,7 @@ hr {
     }
 
     .header-content {
-        width: 65%;
+        width: 70%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -318,17 +319,15 @@ hr {
 
     .login-btn {
         height: 30px;
-        width: 100px;
+        width: 80px;
         border-radius: 5px;
          border: solid 1px #fff; 
         color: #fff;
-        font-size: 16px;
-
+        font-size: 14px;
     }
 
 
     .MuiContainer-root {
-
         padding-left: 8px;
         padding-right: 8px;
         max-width: 550px;
@@ -337,7 +336,7 @@ hr {
 
     .media {
         width: 46%;
-        background-color: #00ADB5;
+        background-color: #393E46;
 
     }
 
@@ -386,6 +385,7 @@ hr {
         margin-bottom: 20px;
     
     }
+
     .text-section {
         color: #fff;
         font-size: 13px;
