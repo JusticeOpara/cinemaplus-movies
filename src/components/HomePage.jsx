@@ -67,9 +67,9 @@ export default function HomePage() {
 							<div className="header-content">
 								<p className="header-text">Cineam<a style={{ color: "#00ADB5" }}>Plus</a> </p>
 								{/* <p className='sub-text'>home</p> */}
-								<p className="sub-text">About us</p>
+								<p className="sub-text">Search</p>
 								<p className='sub-text'>
-									<Link to="/auth/book-mark" style={{color:"#fff" ,hover:"000"}}>Bookmark^</Link>
+									<Link to="/auth/book-mark" style={{color:"#fff" }}>Bookmark^</Link>
 							    </p>
 
 							</div>
@@ -159,18 +159,12 @@ export default function HomePage() {
 									Create by <a href="https://justiceopara.github.io/my-portfolio/" target="_blank">Justice Opara</a>
 								</span>
 
-								<nav className="footet-nav">
-									<a>About Us</a>
-									<a>Contacts</a>
-									<a>Privacy policy</a>
-								</nav>
+
 
 								<svg xmlns="http://www.w3.org/2000/svg" className="footer-button" width="3em" height="3em"
 									viewBox="0 0 24 24"><rect x="0" y="0" width="25" height="25" fill="none" stroke="none" /><path fill="currentColor" d="M21 19a2 
 								2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14m-8-1V9.5l3.5 3.5l1.42-1.42L12 5.66l-5.92 5.92L7.5 13L11 9.5V18h2Z"/></svg>
-								{/* <button className="footer-back" type="button">
-									
-								</button> */}
+
 							</div>
 
 						</div>

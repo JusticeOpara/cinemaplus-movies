@@ -17,8 +17,8 @@ export default function Modal({ setOpenModal, modelMovies }) {
 
 
 
-    const { id, poster_path, title, name, vote_average, release_date, first_air_date, popularity, overview, backdrop_path } = modelMovies
-    const object = { id, poster_path, title, name, vote_average, release_date, first_air_date, popularity, overview, backdrop_path }
+    const { id, poster_path, title, name, vote_average, release_date, first_air_date, popularity, overview, backdrop_path,media_type } = modelMovies
+    const object = { id, poster_path, title, name, vote_average, release_date, first_air_date, popularity, overview, backdrop_path,media_type }
 
     // console.log(object, "--modalMoviesObject")
 
@@ -41,7 +41,7 @@ export default function Modal({ setOpenModal, modelMovies }) {
 
         <div className="modalBackground">
             <div className="modalContainer">
-                <div className="titleCloseBtn">
+                {/* <div className="titleCloseBtn"> */}
                     <button className="closeBtn"
                         onClick={() => {
                             setOpenModal(false)
@@ -49,25 +49,27 @@ export default function Modal({ setOpenModal, modelMovies }) {
 
                         X
                     </button>
-                </div>
+                {/* </div> */}
 
                 <div className="hero">
-                    <div className="contentModalImage">
+                    
                         <img
                             className="movie-poster"
                             src={modelMovies.poster_path ? `${img_300}${modelMovies.poster_path}` : unavailable}
                             alt={modelMovies.title}
                         />
 
-                    </div>
+                    
 
                     <div className="contentModalDescription">
 
-                        <p>{modelMovies.title || modelMovies.name}</p>
-                        <p>{modelMovies.overview}</p>
-                        <span className="">{modelMovies.release_date || modelMovies.first_air_date}</span>
+                        <p className="contentModalTitle">{modelMovies.title || modelMovies.name}</p>
+                        <p className="contentModalOverview">{modelMovies.overview}</p>
+                        <span className="">{modelMovies.release_date || modelMovies.first_air_date}</span> 
 
-                        <button onClick={handleBookmark} className="contentModalBtn"> {isAdding ? 'Add To Bookmark ' : 'Added to Bookmark... ' }</button>
+                        <button onClick={handleBookmark} className="contentModalBtn"> 
+                        {isAdding ? 'Add To Bookmark ' : 'Added to Bookmark... ' }
+                        </button>
 
 
                     </div>

@@ -2,9 +2,10 @@ import React from "react"
 import './styles.css'
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import {  deleteRef, getCollection } from "../Firebase"
+import { deleteRef, getCollection } from "../Firebase"
 import { useAuth } from "../StoredDirectory/authContext";
 import { connectStorageEmulator } from "firebase/storage"
+
 
 
 
@@ -22,7 +23,8 @@ export default function BookMark() {
 
     const handleDelete = async (bookmarkUid) => {
         try {
-            const deleteData = await deleteRef(user.uid, bookmarkUid);
+
+            await deleteRef(user.uid, bookmarkUid);
             const orginalArrayBookmarks = [...readData];
 
             const newArray = orginalArrayBookmarks.filter(data => data.bookmarkId !== bookmarkUid);
@@ -80,16 +82,16 @@ export default function BookMark() {
                                            1.212-2.792c0-1.07-.425-2.08-1.212-2.792l-.303-.297l-30-16.098c-1.091-.832-2.667-1.01-4-.475c-1.516.594-2.485 
                                             2.079-2.485 3.683v31.84c0 1.603.97 3.088 2.485 3.682z"/>
                                 </svg>
-                                <p>WatchList</p>
+                                <p className="x">WatchList</p>
                                 {/* </span> */}
 
                             </div>
 
-                            <p>
-                                <Link to="/" style={{ color: "#fff" }}> Homepage </Link>
+                            <p className="x">
+                                <Link to="/" style={{ color: "#00ADB5" }}> Homepage </Link>
                             </p>
 
-                            <p>UserId</p>
+                            
 
                             <div className='login-btn'>
                                 <Link to="/Login" style={{ color: "#fff" }}>
@@ -100,20 +102,20 @@ export default function BookMark() {
                         </div>
 
                         <div className="bm-headerContent">
-                            <div>
+                            {/* <div > */}
                                 <h2 className="hero-title"> MY BOOKMARKED COLLECTION</h2>
 
                                 <p className="hero-text">All Movies Are Available Right Now</p>
 
-                            </div>
+                            {/* </div> */}
 
-                            <div className="bm-btn">
+                             <div className="bm-btn">
 
                                 <button className="hero-btn">Add to list</button>
 
                                 <button className="hero-btn">More Info</button>
 
-                            </div>
+                             </div> 
                         </div>
 
                     </div>
@@ -126,55 +128,74 @@ export default function BookMark() {
                             {readData.map((movie) => {
 
                                 const { id, title, vote_average, name, media_type, bookmarkId, release_date, popularity, overview, first_air_date, backdrop_path } = movie
-                                
+
                                 console.log(bookmarkId, "---BOOKMARKUID--")
                                 return (
 
                                     <div className="card" key={id} id={id}>
+                                        <div className="card-alpha">
 
-                                        <img className="card-image"
-                                            src={backdrop_path ? `${img_300}${backdrop_path}` : unavailable}
-                                            alt={title} />
+                                            <div className="card-meta">
 
-                                        <div className="card-detail">
+                                                <h2 className="card-title">{title || name}</h2>
 
-                                            <h2 className="card-title">{title || name}</h2>
+                                                <a className="card-overview">{overview}</a>
+                                                <ul>
 
+                                                    <li><span>Date:</span> {release_date || first_air_date}</li>
+                                                    <li><span>Popularity:</span> {popularity}</li>
 
+                                                    <li><span>Rating:</span>
 
-                                            <ul>
-                                                <li>
-                                                    <span >Summary:</span>  {overview}
-                                                </li>
-                                                <li>
-                                                    <span>Popuarity:</span>  {popularity}
-                                                </li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" className="Rate" color="#00ADB5" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor"
+                                                            d="m5.825 22l1.625-7.025L2 10.25l7.2-.625L12 3l2.8 6.625l7.2.625l-5.45 4.725L18.175 22L12 18.275L5.825 22Z" /></svg>
 
-                                                <li>
-                                                    <span>Vote-average:</span>  {vote_average}
-                                                </li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" className="Rate" color="#00ADB5" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor"
+                                                            d="m5.825 22l1.625-7.025L2 10.25l7.2-.625L12 3l2.8 6.625l7.2.625l-5.45 4.725L18.175 22L12 18.275L5.825 22Z" /></svg>
 
-                                                <li>
-                                                    <span>Media-type:</span> {media_type}
-                                                </li>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" className="Rate" color="#00ADB5" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor"
+                                                            d="m5.825 22l1.625-7.025L2 10.25l7.2-.625L12 3l2.8 6.625l7.2.625l-5.45 4.725L18.175 22L12 18.275L5.825 22Z" /></svg>
 
-                                                <li>
-
-                                                    <span> Release_date:</span> {release_date || first_air_date}
-                                                </li>
-
-                                            </ul>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" className="Rate" color="#00ADB5" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor"
+                                                            d="m5.825 22l1.625-7.025L2 10.25l7.2-.625L12 3l2.8 6.625l7.2.625l-5.45 4.725L18.175 22L12 18.275L5.825 22Z" /></svg>
+                                                    </li>
+                                                </ul>
 
 
+
+
+                                            </div>
+                                            {/* <div className="movie-card"> */}
+                                            <img className="card-image"
+                                                src={backdrop_path ? `${img_300}${backdrop_path}` : unavailable}
+                                                alt={title} />
+
+
+                                            {/* </div> */}
+
+                                        </div>
+                                        <div className="card-beta">
+                                            <a className="trailer-card">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                                    <path fill="currentColor" d="m9.5 16.5l7-4.5l-7-4.5v9ZM12 22q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 
+                                                12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 
+                                            2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Z"/>
+                                                </svg>
+                                                WATCH TRAILER
+                                            </a>
+
+                                            <div className="delete-btn" onClick={() => handleDelete(bookmarkId)}>
+                                                <svg xmlns="http://www.w3.org/2000/svg"  className="trash" width="36" height="36" viewBox="0 0 24 24">
+                                                    <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12l1.41 
+                                                     1.41L13.41 14l2.12 2.12l-1.41 1.41L12 15.41l-2.12 2.12l-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
+                                                </svg>
+                                            </div>
+
+                                            <p className="media-type"> {media_type}  SERIES</p>
 
                                         </div>
 
-                                        <div className="delete-btn" onClick={() => handleDelete(bookmarkId)}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
-                                                <path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12l1.41 
-                                                 1.41L13.41 14l2.12 2.12l-1.41 1.41L12 15.41l-2.12 2.12l-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/>
-                                            </svg>
-                                        </div>
+
                                     </div>
                                 )
 

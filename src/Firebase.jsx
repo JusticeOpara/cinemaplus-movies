@@ -129,32 +129,17 @@ export const forgotPassword = async (auth, email) => {
 }
 
 
-
-
 export const bookmark = async (userId, movies) => {
 
   try {
 
     const bookmarkRef = doc(collection(db, 'users', userId, 'bookmark'));
     console.log(bookmarkRef.id, "--BOOK--MARK--REF--");
-    const docId = bookmarkRef.id
 
-    if (!docId.empty) {
-      console.log(`Document ${docId} already exists in the sub-collection`);
-      
-    } else {
+    const moviesObj = { ...movies, userId: userId, bookmarkId: bookmarkRef.id }
+    console.log(moviesObj, "---MOVIESOBJ")
+    await setDoc(bookmarkRef, JSON.parse(JSON.stringify(moviesObj)),{merge: true});
 
-      const moviesObj = { ...movies, userId: userId, bookmarkId: docId }
-      console.log(moviesObj, "---MOVIESOBJ")
-  
-      // await setDoc(bookmarkRef, JSON.parse(JSON.stringify(moviesObj)));
-      await bookmarkRef.doc(docId).setDoc(
-        JSON.parse(JSON.stringify(moviesObj))
-      );
-      console.log(`Adding document ${docId} to the sub-collection`);
-    }
-
-    
   } catch (e) {
     console.log("Error in adding document from bookmark: ", e);
   }

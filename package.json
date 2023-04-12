@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-event-observer": "^0.5.11",
     "react-router-dom": "^6.8.0",
+    "react-simple-star-rating": "^5.1.7",
     "react-toastify": "^9.1.1",
     "yup": "^0.32.11"
   },

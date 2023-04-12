@@ -173,3 +173,113 @@ export const bookmark = async (userId, movies) => {
     console.log("Error in adding document from bookmark: ", e);
   }
 };
+
+
+
+
+
+export const bokmark = async (userId, movies) => {
+
+  try {
+
+    const bookmarkRef = doc(collection(db, 'users', userId, 'bookmark'));
+    console.log(bookmarkRef.id, "--BOOK--MARK--REF--");
+    const docId = bookmarkRef.id
+
+    // if (!docId.empty) {
+    //   console.log(`Document ${docId} already exists in the sub-collection`);
+      
+    // } else {
+
+      const moviesObj = { ...movies, userId: userId, bookmarkId: docId }
+      console.log(moviesObj, "---MOVIESOBJ")
+  
+      // await setDoc(bookmarkRef, JSON.parse(JSON.stringify(moviesObj)));
+      await bookmarkRef.doc(docId).setDoc(
+        JSON.parse(JSON.stringify(moviesObj))
+      );
+      console.log(`Adding document ${docId} to the sub-collection`);
+  
+
+    
+  } catch (e) {
+    console.log("Error in adding document from bookmark: ", e);
+  }
+};
+
+// .card {
+//   width: 92%;
+//   height: 300px;
+//   background-color: #393E46;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-around;
+//   align-items: center;
+//   border-radius: 10px;
+//   font-family: "Montserrat", sans-serif;
+//   cursor: pointer;
+//   padding: 5px;
+//   margin: 5px 0;
+// }
+
+// .card-image {
+//   border-radius: 10px;
+//   width: 500px;
+//   height: 280px;
+// }
+
+// .card-title {
+//   font-size: 30px;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+// }
+
+// .card-detail {
+
+//   /* background-color: #333; */
+//   width: 500px;
+//   height: 280px;
+//   overflow-y: scroll;
+//   line-height: 28px;
+  
+//   /* font-size: 16px; */
+
+// }
+
+// ul {
+//   list-style: none;
+
+// }
+
+
+import React, { useState } from 'react';
+
+const StarRating = ({ initialRating }) => {
+  const [rating, setRating] = useState(initialRating); // State to keep track of the current rating
+
+  const handleStarClick = (newRating) => {
+    setRating(newRating); // Update the rating state when a star is clicked
+  };
+
+  return (
+    <div>
+      {/* Render 5 stars */}
+      {[1, 2, 3, 4, 5].map((num) => (
+        <span
+          key={num}
+          onClick={() => handleStarClick(num)}
+          style={{ cursor: 'pointer' }}
+        >
+          {/* Render filled or empty star based on the current rating */}
+          {num <= rating ? '★' : '☆'}
+        </span>
+      ))}
+    </div>
+  );
+};
+
+export default StarRating;
